@@ -15,7 +15,7 @@ export function renderHtml(): string {
     <h2>Insemination Records</h2>
     <table id="data-table">
       <thead>
-        <tr><th>ID</th><th>Tag ID</th><th>Insemination Date</th><th>Exam Date</th></tr>
+        <tr><th>ID</th><th>Tag ID</th><th>Insemination Date</th><th>Exam Date</th><th>Farm ID</th><th>Name</th></tr>
       </thead>
       <tbody></tbody>
     </table>
@@ -31,6 +31,8 @@ export function renderHtml(): string {
             <td>\${row.tag_id}</td>
             <td>\${row.insemination_date}</td>
             <td>\${row.exam_date ?? ""}</td>
+            <td>\${row.farm_id ?? ""}</td>
+            <td>\${row.name ?? ""}</td>
           \`;
           tbody.appendChild(tr);
         }
