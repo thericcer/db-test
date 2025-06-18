@@ -7,8 +7,8 @@ CREATE TABLE IF NOT EXISTS cow_records (
 );
 
 -- Insert some sample data into our comments table.
-INSERT INTO cow_records (author, content)
+INSERT INTO cow_records (tag_id, insemination_date, exam_date)
 VALUES
-    ('112233445566778899', '22-04-2025'),
+    ('112233445566778899', '22-04-2025', '06-05-2025'),
     ('deadbeefcofeecofee', '22-04-2025', '05-05-2025')
 ;
