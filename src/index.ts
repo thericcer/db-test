@@ -2,12 +2,18 @@ import { renderHtml } from "./renderHtml";
 
 export default {
   async fetch(request, env) {
-    const stmt = env.DB.prepare("SELECT * FROM cow_records LIMIT 3");
-    const { results } = await stmt.all();
+    const url = new URL(request.url);
 
-    return new Response(renderHtml(JSON.stringify(results, null, 2)), {
+    if (url.pathname === "/api/data") {
+        const { results } = await env.DB.prepare("SELECT * FROM cow_records").all();
+        return new Response(JSON.stringify(results), {
+            headers: { "Content-Type": "application/json" },
+        });
+    }
+
+    return new Response(renderHtml(), {
       headers: {
-        "content-type": "text/html",
+        "Content-Type": "text/html",
       },
     });
   },
